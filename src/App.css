@@ -2,37 +2,91 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2 {
+  font-weight: 600;
+  font-size: 25px;
+  margin: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.img {
+  height: 50px;
+  width: 50px;
+  margin: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.header {
+  display:flex;
+  justify-content: space-between;
   align-items: center;
+}
+
+.data {
+  margin: 5px;
+}
+
+body {
+  /*background-color: rgb(207, 163, 163);*/
+  /*background-color: rgb(249, 249, 249);*/
+  background-color: rgb(249, 243, 243);
+}
+
+.Container {
+  display: flex;
+  flex-wrap: wrap; /* Přidáno */
+}
+
+.Box {
+  width: 100px;
+  background-color: white;
+  height: 125px;
+  margin: 10px;
+  /*border: 0.1px solid black;*/
+  flex: 1;
+  /*padding: 5px;*/
+  text-align: left;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.Graph {
+  
+  background-color: white;
+  height: 400px;
+  margin: 10px;
+  /*border: 0.1px solid black;*/
+  flex: 0.7;
+  text-align: left;
+  padding: 5px;
+  border-radius: 15px;
+  align-items: center;
+  flex-basis: 0; /* Přidáno */
+  max-width: 100%; /* Přidáno */
+  
+}
+
+.graph-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Alerts {
+  
+  background-color: white;
+  height: 400px;
+  margin: 10px;
+  /*border: 0.1px solid black;*/
+  flex: 0.3;
+  text-align: left;
+  padding: 5px;
+  border-radius: 15px;
+  
 }
