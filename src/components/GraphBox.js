@@ -2,6 +2,7 @@ import React from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import Slider from 'react-input-slider';
 
+
 const data = [
     { timestamp: 1678994955, temperature: 21.3 },
   { timestamp: 1678995555, temperature: 20.4 },
@@ -99,14 +100,14 @@ const dataWithDate = data.map(item => {
       date: date,
       day: day
     };
-  });
+});
 
 
 const GraphBox = (props) => {
-    const tooltipFormatter = (value, name, entry) => {
+    /*const tooltipFormatter = (value, name, entry) => {
         const time = entry.payload.date.split(', ')[1];
         return [`Čas: ${time}, ` + `Teplota: ${value} °C` ];
-      };
+      };*/
 
     return (
         <div className="Graph">
@@ -114,16 +115,16 @@ const GraphBox = (props) => {
             <div className="graph-container">
                 <ResponsiveContainer width="100%" height={300}>
                     <LineChart
-                        data={dataWithDate}
+                        data={props.dataWithDate}
                         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis
-                            dataKey="day"
+                            dataKey="time"
                             tick={false}
                             />
                         <YAxis />
-                        <Tooltip formatter={tooltipFormatter} />
+                        <Tooltip /*formatter={tooltipFormatter}*/ />
                         <Line type="monotone" dataKey="temperature" stroke="#8884d8" activeDot={{ r: 8 }} />
                     </LineChart>
                 </ResponsiveContainer>
