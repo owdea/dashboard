@@ -1,13 +1,12 @@
 import './App.css';
-import DataBox from './components/DataBox';
-import GraphBox from './components/GraphBox';
-import AlertBox from './components/AlertBox';
+import React, { useState } from "react";
 import coldImg from './icons/cold.png';
 import hotImg from "./icons/hot.png";
 import tempImg from "./icons/temp.png";
 import sosImg from "./icons/sos.png"
-import { useState } from 'react';
-import { DateRangePicker } from 'rsuite';
+import Dashboard from './components/Dashboard';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"
 
 function App() {
   
@@ -50,19 +49,51 @@ function App() {
     }
   }
 
+const DataBoxes = [
+  {
+    title: "Temperature",
+    data: lastTemperature,
+    unit: "°C",
+    img: tempImg,
+    imgAlt: "thermometer",
+  },
+  {
+    title: "Min temperature",
+    data: minTemperature,
+    unit: "°C",
+    img: coldImg,
+    imgAlt: "snowflake - low temperature icon",
+  },
+  {
+    title: "Max temperature",
+    data: maxTemperature,
+    unit: "°C",
+    img: hotImg,
+    imgAlt: "fire - hot temperature icon",
+  },
+  {
+    title: "Workplace situation",
+    data: "OK",
+    img: sosImg,
+    imgAlt: "SOS text icon",
+  },
+]
+
+  const [selectedDate, setSelectedDate] = useState(new Date())
+
+  const handleDateChange = (date) => {
+    console.log("Vybrané datum", date)
+    setSelectedDate(date);
+  }
 
   return (
-    <div className="App">
-      <div className="Container">
-        <DataBox title="Temperature" data={lastTemperature} unit="°C" img={tempImg} imgAlt="thermometer"/>
-        <DataBox title="Min Temperature" data={minTemperature} unit="°C" img={coldImg} imgAlt="snowflake - low temperature icon" />
-        <DataBox title="Max Temperature" data={maxTemperature} unit="°C" img={hotImg} imgAlt="fire - hot temperature icon"/>
-        <DataBox title="Workplace situation" data="OK" img={sosImg} imgAlt="SOS text icon"/>
-      </div>
-      <div className='Container'>
-        <GraphBox title="Temperature" dataWithDate={generatedData}/>
-        <AlertBox title="Alert history"/>
-      </div>
+    <div>
+      <DatePicker 
+        selected={selectedDate}
+        onChange={handleDateChange}
+        dateFormat="dd/MM/yyyy"
+      />
+      <Dashboard DataBoxes={DataBoxes} generatedData={generatedData}/>
     </div>
   );
 }

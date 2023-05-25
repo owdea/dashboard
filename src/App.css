@@ -36,9 +36,19 @@ body {
   background-color: rgb(249, 243, 243);
 }
 
+.Dashboard {
+  border: 2px solid black;
+  border-radius: 25px;
+  margin: 10px;
+  background-color: rgb(213, 213, 213);
+}
+.DashboardTitle {
+  margin-left: 10px;
+}
+
 .Container {
   display: flex;
-  flex-wrap: wrap; /* Přidáno */
+  flex-wrap: wrap; 
 }
 
 .Box {
@@ -46,9 +56,7 @@ body {
   background-color: white;
   height: 125px;
   margin: 10px;
-  /*border: 0.1px solid black;*/
   flex: 1;
-  /*padding: 5px;*/
   text-align: left;
   border-radius: 15px;
   padding: 5px;
@@ -89,5 +97,17 @@ body {
   text-align: left;
   padding: 5px;
   border-radius: 15px;
+  
+}
+
+input.inputBox {
+
+}
+
+.calendarWrap {
+
+}
+
+.calendarElement {
   
 }
